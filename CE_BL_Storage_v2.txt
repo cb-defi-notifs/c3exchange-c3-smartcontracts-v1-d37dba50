@@ -1,0 +1,68 @@
+NOTE: None of the classes here are the actual production code, just condensed documentation of the general structure
+
+Global Storage:
+
+- Must include a fixed number of 8 byte references to other contracts
+- Must include a list with the following entry type
+
+class AssetInfo(NamedTuple):
+    asset_id: Uint64
+
+    initial_haircut: Uint16
+    initial_margin: Uint16
+    maint_haircut: Uint16
+    maint_margin: Uint16
+
+    optimal_utilization: Uint16
+
+    last_update_time: Uint32 # Timestamp is relative to contract creation time
+    borrow_index: Uint64
+    lend_index: Uint64
+    
+    minimum_rate: Uint64
+    optimal_rate: Uint64
+    maximum_rate: Uint64
+    borrowed: Uint64
+    liquidity: Uint64
+
+Size = 8 + 5 * 2 + 4 + 7 * 8 = 78 bytes/entry
+
+Blob size = 59 * 127 = 7493 bytes
+
+Therefore blob holds roughly floor(7493 / 78) = 96 assets
+
+User Storage:
+
+- Must include two dictionaries
+- Dictionaries and lists thus must have a movable implementation with a dynamic base pointer
+
+class UserLoanEntry:
+    timestamp: Uint32 # Timestamp is relative to contract creation time
+    principal: Uint64
+    interest: Uint64
+
+class UserData:
+    assets:  Dict[Uint64]
+    loans: Dict[UserLoanEntry]
+
+Size = balances * 8 + loans * (4 + 8 + 8)
+Size = balances * 8 + loans * 20
+
+Blob size = 16 * 127 = 2032
+
+2032 = balances * 8 + loans * 20
+Max balances = 2032 / 8 = 254
+Max loans = 2032 / 20 = 101
+
+We have plenty of space for this structure even using only half the available slots per user
+
+Delegation Storage:
+   
+# Delegation of permissions from primary to delegate
+class DelegationData:
+    version: Uint8
+    # Each user can delegate permission to another user to borrow/repay within limits
+    # User may allow spending down to min_assets as well
+    # asset_limits: Map<ReducedAssetId, [max_borrow: U64, max_repay: U64, min_assets: U64]>
+    asset_bitmap: Uint64
+    asset_data: DynamicArray[Tuple[Uint64, Uint64, Uint64]]

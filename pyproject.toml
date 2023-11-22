@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "contracts-unified"
+version = "0.1.0"
+description = ""
+authors = ["CiottiGiorgio <gciotti.dev@gmail.com>"]
+readme = "README.md"
+packages = [{include = "contracts_unified"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyteal = { git = "https://github.com/algorand/pyteal.git", rev = "master" }
+
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.10.1"
+pylint = "^2.15.8"
+mypy = "^0.991"
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+autoflake = "^2.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
