@@ -7,9 +7,9 @@ License text copyright (c) 2017 MariaDB Corporation Ab, All Rights Reserved.
 
 Parameters
 
-Licensor: C3
+Licensor: C3 LLC
 
-Licensed Work:  C3 LLC
+Licensed Work:  C3 
 
 Additional Use Grant: Any uses listed and defined at this [LICENSE](./LICENSE.md)
 
