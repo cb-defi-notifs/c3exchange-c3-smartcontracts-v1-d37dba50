@@ -1,0 +1,100 @@
+General Overview
+----------------
+
+The C3 on-chain system is divided into the following contracts
+- Core - Holds funds and performs transfers and swaps
+- PriceCaster - Keeps the prices of all instruments in global storage
+- UserProxy - Represents a C3 user
+
+Library
+-------
+
+To enable the rest of the contracts, we have a small library of core data structures
+
+The lowest layer is the blob interface, which defines a generic byte array interface for global/local storage slots.
+
+The next layer builds data structures on top of the blob. Data structures are either static or moveable. Moveable
+structures have a method to set their pointer before they can be used. Each data structure implements both a
+moveable and static version
+
+The data structures we have are
+- BlobList - Uses one byte to store length, followed by a packed array of entries
+- BlobDictionary - Uses 1-8 bytes to store a bitmap of keys, followed by a list to store the data
+
+Core Contract
+-------------
+
+The core contract offers the following opeations
+- Create - Performs bootstrap logic
+- Update - Updates contract code
+- Deposit - Adds funds to the user's deposited balance
+	- Has three versions, one for algo, one for ASAs, and one for Wormhole
+	- Increases the user's cash balance for the relevant instrument
+- Withdraw - Removes funds from the user's deposited balance
+	- Takes an instrument ID and an unsigned amount to Withdraw
+	- Takes a wormhole address as a withdraw target
+	- Calculates the instant borrow amount, checking against max borrow
+	- Validates the user has health after the withdraw
+	- Transfers assets from the core contract to the user
+- Pool Move - Moves funds to or from the lending pools
+	- Takes a basket of signed amounts representing the transfer
+	- For positive values, moves from the user's cash position to their pool position
+		- Validates the user has enough cash to support the transfer
+	- For negative values, moves from user's pool position to the user's cash position
+		- Validates the user has enough in the pool to support the transfer
+	- Validates the pool's health
+	- Validates the user's health
+- Swap - Settles an order
+	- Takes two orders
+	- Validate both orders
+		- Signatures must match against user signing method
+		- Order type(market, limit, etc) validation?
+		- Validate amounts
+	- Update balances and pools with traded amounts
+		- Have asset reduced for both users
+		- Want asset increased for both users
+		- Instant borrow/repay applied to users's orders
+	- Validate both accounts are healthy
+
+To enable this, the core contract stores a global blob list containing each
+instrument's parameters.
+
+The core contract additionally has an internal function which calculates
+the health of the user.
+
+Price Caster
+------------
+
+
+
+User Proxy
+----------
+
+The user proxy is a generic smart wallet. It sends transactions on behalf of a user.
+
+Each operation it receives is signed by the user using a specified signing method.
+
+To enable the validation of the signature, all parameters needed for validation are packed into the
+last parmeter in the call.
+
+User proxies also support delegation. To support this, a set of special delegation operations are
+provided via the custom user proxy no-op bare call. Internally, the parameters of the call in the
+last argument are examined to determine if the request is for a no-op, payment, etc, or for a
+delegation operation.
+
+Operations
+- Create - Opts in to core contract
+- ProxyTransaction
+	- Takes an encoded transaction list
+	- Validates user signature
+	- Checks for delegation permission if the user is not the original user
+	- Runs transactions from user proxy
+- Delegate
+	- Takes another user proxy's address and a permissions object
+	- Inserts or updates the permissions for that user on the proxy
+- Revoke
+	- Takes in a user proxy address
+	- Validates the original user's signture
+	- Removes the entry from the proxy's permission list
+
+Delegation information is stored in a box, allowing unlimited delegations

@@ -1,0 +1,4519 @@
+#pragma version 9
+intcblock 0 1 9223372036854775808 1000000000000 1000 256 65536 4294967296 1000000000000000 1000000000 133
+bytecblock 0x 0x63 0x71 0x69 0x70 0x66 0x73 0x62 0x6c 0x77 0x6f 0x6d 0x74 0xe80737cd 0x776f726d686f6c654465706f736974
+txn NumAppArgs
+intc_0 // 0
+==
+bnz main_l30
+txna ApplicationArgs 0
+pushbytes 0xc5b661d8 // "create(byte[8],byte[8],byte[4],address,address,address,address,address,uint64)void"
+==
+bnz main_l29
+txna ApplicationArgs 0
+pushbytes 0xd0e96ff3 // "update_instrument((uint8,uint64,uint16,uint16,uint16,uint16,uint16,uint64,uint64,uint64),uint64)void"
+==
+bnz main_l28
+txna ApplicationArgs 0
+pushbytes 0xda73965d // "update_parameter(byte[],byte[])void"
+==
+bnz main_l27
+txna ApplicationArgs 0
+pushbytes 0x71818e84 // "deposit(address,txn,byte[7],uint8,uint64,uint64)void"
+==
+bnz main_l26
+txna ApplicationArgs 0
+pushbytes 0x6ed2f8a8 // "wormhole_deposit(appl,address,byte[7],uint8,uint64)void"
+==
+bnz main_l25
+txna ApplicationArgs 0
+pushbytes 0x6904886c // "pool_move(address,((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[]),((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[])[],byte[],uint64)void"
+==
+bnz main_l24
+txna ApplicationArgs 0
+bytec 13 // "add_order(address,((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[]),((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[])[],uint64)void"
+==
+bnz main_l23
+txna ApplicationArgs 0
+pushbytes 0x05c23896 // "settle(appl,address,((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[]),((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[])[],(uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64,uint64),uint64)void"
+==
+bnz main_l22
+txna ApplicationArgs 0
+pushbytes 0x8ab80cb0 // "withdraw(address,((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[]),((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[])[],(uint64,uint64),uint64)void"
+==
+bnz main_l21
+txna ApplicationArgs 0
+pushbytes 0x903f4535 // "portal_transfer(byte[])byte[]"
+==
+bnz main_l20
+txna ApplicationArgs 0
+pushbytes 0xabb4088e // "account_move(address,((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[]),((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[])[],byte[],uint64)void"
+==
+bnz main_l19
+txna ApplicationArgs 0
+pushbytes 0x7716a1b3 // "liquidate(address,((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[]),((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[])[],byte[],uint64)void"
+==
+bnz main_l18
+txna ApplicationArgs 0
+pushbytes 0x6dd96ba8 // "clean_orders((byte,address,uint64,uint64,uint8,uint64,uint64,uint8,uint64,uint64)[])void"
+==
+bnz main_l17
+txna ApplicationArgs 0
+pushbytes 0xd1474b5a // "fund_mbr(pay)void"
+==
+bnz main_l16
+err
+main_l16:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub fundmbrcaster_63
+intc_1 // 1
+return
+main_l17:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub cleanorderscaster_62
+intc_1 // 1
+return
+main_l18:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub liquidatecaster_61
+intc_1 // 1
+return
+main_l19:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub accountmovecaster_60
+intc_1 // 1
+return
+main_l20:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub portaltransfercaster_59
+intc_1 // 1
+return
+main_l21:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub withdrawcaster_58
+intc_1 // 1
+return
+main_l22:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub settlecaster_57
+intc_1 // 1
+return
+main_l23:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub addordercaster_56
+intc_1 // 1
+return
+main_l24:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub poolmovecaster_55
+intc_1 // 1
+return
+main_l25:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub wormholedepositcaster_54
+intc_1 // 1
+return
+main_l26:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub depositcaster_53
+intc_1 // 1
+return
+main_l27:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub updateparametercaster_52
+intc_1 // 1
+return
+main_l28:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+!=
+&&
+assert
+callsub updateinstrumentcaster_51
+intc_1 // 1
+return
+main_l29:
+txn OnCompletion
+intc_0 // NoOp
+==
+txn ApplicationID
+intc_0 // 0
+==
+&&
+assert
+callsub createcaster_50
+intc_1 // 1
+return
+main_l30:
+txn OnCompletion
+pushint 4 // UpdateApplication
+==
+bnz main_l34
+txn OnCompletion
+pushint 5 // DeleteApplication
+==
+bnz main_l33
+err
+main_l33:
+callsub delete_23
+intc_1 // 1
+return
+main_l34:
+callsub update_22
+intc_1 // 1
+return
+
+// set_address
+setaddress_0:
+proto 2 0
+frame_dig -1
+len
+pushint 32 // 32
+==
+assert
+frame_dig -2
+frame_dig -1
+app_global_put
+retsub
+
+// ensure_mbr_fund
+ensurembrfund_1:
+proto 0 0
+global CurrentApplicationAddress
+min_balance
+bytec 11 // "m"
+app_global_get
+<=
+assert
+retsub
+
+// get_instrument
+getinstrument_2:
+proto 1 1
+bytec_0 // ""
+bytec_3 // "i"
+frame_dig -1
+pushint 78 // 78
+*
+pushint 78 // 78
+box_extract
+frame_bury 0
+retsub
+
+// get_position
+getposition_3:
+proto 2 1
+bytec_0 // ""
+intc_0 // 0
+frame_dig -1
+pushint 24 // 24
+*
+frame_bury 1
+frame_dig -2
+box_get
+store 1
+store 0
+load 0
+len
+frame_dig 1
+<=
+bz getposition_3_l2
+frame_dig -2
+box_del
+pop
+frame_dig -2
+frame_dig 1
+pushint 24 // 24
++
+box_create
+pop
+frame_dig -2
+intc_0 // 0
+load 0
+box_replace
+callsub ensurembrfund_1
+getposition_3_l2:
+frame_dig -2
+frame_dig 1
+pushint 24 // 24
+box_extract
+frame_bury 0
+retsub
+
+// get_user_instrument_count
+getuserinstrumentcount_4:
+proto 1 1
+intc_0 // 0
+frame_dig -1
+box_len
+store 11
+pushint 24 // 24
+/
+frame_bury 0
+frame_dig 0
+bytec_1 // "c"
+app_global_get
+>
+bz getuserinstrumentcount_4_l2
+bytec_1 // "c"
+app_global_get
+frame_bury 0
+getuserinstrumentcount_4_l2:
+retsub
+
+// unsigned_min
+unsignedmin_5:
+proto 2 1
+frame_dig -2
+frame_dig -1
+<
+bnz unsignedmin_5_l2
+frame_dig -1
+b unsignedmin_5_l3
+unsignedmin_5_l2:
+frame_dig -2
+unsignedmin_5_l3:
+retsub
+
+// teal_expt
+tealexpt_6:
+proto 2 1
+intc_0 // 0
+dup
+frame_dig -2
+frame_bury 1
+intc_3 // 1000000000000
+frame_bury 0
+tealexpt_6_l1:
+frame_dig -1
+intc_0 // 0
+>
+bz tealexpt_6_l5
+frame_dig -1
+intc_1 // 1
+&
+bnz tealexpt_6_l4
+tealexpt_6_l3:
+frame_dig 1
+frame_dig 1
+mulw
+intc_0 // 0
+intc_3 // 1000000000000
+divmodw
+pop
+pop
+swap
+!
+assert
+frame_bury 1
+frame_dig -1
+intc_1 // 1
+shr
+frame_bury -1
+b tealexpt_6_l1
+tealexpt_6_l4:
+frame_dig 0
+frame_dig 1
+mulw
+intc_0 // 0
+intc_3 // 1000000000000
+divmodw
+pop
+pop
+swap
+!
+assert
+frame_bury 0
+b tealexpt_6_l3
+tealexpt_6_l5:
+retsub
+
+// signed_neg
+signedneg_7:
+proto 1 1
+frame_dig -1
+!
+bnz signedneg_7_l2
+frame_dig -1
+~
+intc_1 // 1
++
+b signedneg_7_l3
+signedneg_7_l2:
+frame_dig -1
+signedneg_7_l3:
+retsub
+
+// signed_abs
+signedabs_8:
+proto 1 1
+frame_dig -1
+intc_2 // 9223372036854775808
+&
+bnz signedabs_8_l2
+frame_dig -1
+b signedabs_8_l3
+signedabs_8_l2:
+frame_dig -1
+callsub signedneg_7
+signedabs_8_l3:
+retsub
+
+// signed_add
+signedadd_9:
+proto 2 1
+intc_0 // 0
+frame_dig -2
+frame_dig -1
+addw
+store 3
+store 2
+frame_dig -2
+intc_2 // 9223372036854775808
+&
+frame_bury 0
+frame_dig 0
+frame_dig -1
+intc_2 // 9223372036854775808
+&
+!=
+frame_dig 0
+load 3
+intc_2 // 9223372036854775808
+&
+==
+||
+assert
+load 3
+frame_bury 0
+retsub
+
+// signed_sub
+signedsub_10:
+proto 2 1
+frame_dig -2
+frame_dig -1
+callsub signedneg_7
+callsub signedadd_9
+retsub
+
+// signed_gte
+signedgte_11:
+proto 2 1
+frame_dig -2
+intc_2 // 9223372036854775808
+&
+bnz signedgte_11_l4
+frame_dig -1
+intc_2 // 9223372036854775808
+&
+bnz signedgte_11_l3
+frame_dig -2
+frame_dig -1
+>=
+b signedgte_11_l7
+signedgte_11_l3:
+intc_1 // 1
+b signedgte_11_l7
+signedgte_11_l4:
+frame_dig -1
+intc_2 // 9223372036854775808
+&
+bnz signedgte_11_l6
+intc_0 // 0
+b signedgte_11_l7
+signedgte_11_l6:
+frame_dig -2
+frame_dig -1
+>=
+signedgte_11_l7:
+retsub
+
+// signed_min
+signedmin_12:
+proto 2 1
+frame_dig -2
+frame_dig -1
+callsub signedgte_11
+bnz signedmin_12_l2
+frame_dig -2
+b signedmin_12_l3
+signedmin_12_l2:
+frame_dig -1
+signedmin_12_l3:
+retsub
+
+// signed_max
+signedmax_13:
+proto 2 1
+frame_dig -2
+frame_dig -1
+callsub signedgte_11
+bnz signedmax_13_l2
+frame_dig -1
+b signedmax_13_l3
+signedmax_13_l2:
+frame_dig -2
+signedmax_13_l3:
+retsub
+
+// perform_pool_move
+performpoolmove_14:
+proto 3 0
+intc_0 // 0
+dupn 19
+bytec_0 // ""
+intc_0 // 0
+dupn 13
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+frame_dig -2
+callsub getinstrument_2
+frame_bury 35
+frame_dig 35
+intc_0 // 0
+extract_uint64
+frame_bury 10
+frame_dig 35
+pushint 16 // 16
+extract_uint32
+frame_bury 1
+frame_dig 35
+pushint 62 // 62
+extract_uint64
+frame_bury 3
+frame_dig 35
+pushint 70 // 70
+extract_uint64
+frame_bury 5
+frame_dig 35
+pushint 20 // 20
+extract_uint64
+frame_bury 7
+frame_dig 35
+pushint 28 // 28
+extract_uint64
+frame_bury 9
+frame_dig 35
+pushint 36 // 36
+extract_uint16
+frame_bury 15
+frame_dig 15
+intc_3 // 1000000000000
+mulw
+intc_0 // 0
+intc 4 // 1000
+divmodw
+pop
+pop
+swap
+!
+assert
+frame_bury 16
+frame_dig 35
+pushint 38 // 38
+extract_uint64
+frame_bury 17
+frame_dig 35
+pushint 46 // 46
+extract_uint64
+frame_bury 18
+frame_dig 35
+pushint 54 // 54
+extract_uint64
+frame_bury 19
+frame_dig 35
+pushint 8 // 8
+extract_uint16
+frame_bury 11
+frame_dig 35
+pushint 10 // 10
+extract_uint16
+frame_bury 12
+frame_dig 35
+pushint 12 // 12
+extract_uint16
+frame_bury 13
+frame_dig 35
+pushint 14 // 14
+extract_uint16
+frame_bury 14
+global LatestTimestamp
+bytec 12 // "t"
+app_global_get
+-
+frame_bury 0
+frame_dig 0
+intc 7 // 4294967296
+<
+assert
+frame_dig 5
+intc_0 // 0
+==
+bnz performpoolmove_14_l21
+frame_dig 3
+intc_3 // 1000000000000
+mulw
+intc_0 // 0
+frame_dig 5
+divmodw
+pop
+pop
+swap
+!
+assert
+performpoolmove_14_l2:
+frame_bury 27
+frame_dig 27
+frame_dig 16
+<
+bnz performpoolmove_14_l20
+frame_dig 18
+frame_dig 27
+frame_dig 16
+-
+frame_dig 19
+frame_dig 18
+-
+mulw
+intc_0 // 0
+intc_3 // 1000000000000
+frame_dig 16
+-
+divmodw
+pop
+pop
+swap
+!
+assert
++
+performpoolmove_14_l4:
+frame_bury 28
+frame_dig 0
+frame_dig 1
+-
+frame_bury 29
+intc_3 // 1000000000000
+frame_dig 28
++
+frame_bury 30
+frame_dig 30
+frame_dig 29
+callsub tealexpt_6
+frame_bury 31
+frame_dig 31
+intc_3 // 1000000000000
+-
+frame_dig 3
+mulw
+intc_0 // 0
+intc_3 // 1000000000000
+divmodw
+pop
+pop
+swap
+!
+assert
+frame_bury 32
+frame_dig 3
+frame_dig 32
++
+frame_bury 2
+frame_dig 5
+frame_dig 32
++
+frame_bury 4
+frame_dig 3
+intc_0 // 0
+==
+bnz performpoolmove_14_l19
+frame_dig 7
+frame_dig 2
+mulw
+intc_0 // 0
+frame_dig 3
+divmodw
+pop
+pop
+swap
+!
+assert
+performpoolmove_14_l6:
+frame_bury 6
+frame_dig 5
+intc_0 // 0
+==
+bnz performpoolmove_14_l18
+frame_dig 9
+frame_dig 4
+mulw
+intc_0 // 0
+frame_dig 5
+divmodw
+pop
+pop
+swap
+!
+assert
+performpoolmove_14_l8:
+frame_bury 8
+frame_dig -3
+global ZeroAddress
+!=
+bz performpoolmove_14_l22
+frame_dig -3
+frame_dig -2
+callsub getposition_3
+frame_bury 20
+frame_dig 20
+intc_0 // 0
+extract_uint64
+frame_bury 26
+frame_dig 20
+pushint 8 // 8
+extract_uint64
+frame_bury 22
+frame_dig 20
+pushint 16 // 16
+extract_uint64
+frame_bury 24
+frame_dig 24
+intc_0 // 0
+==
+bnz performpoolmove_14_l17
+frame_dig 22
+intc_2 // 9223372036854775808
+&
+bnz performpoolmove_14_l16
+frame_dig 22
+frame_dig 8
+mulw
+intc_0 // 0
+frame_dig 24
+divmodw
+pop
+pop
+swap
+!
+assert
+performpoolmove_14_l12:
+frame_bury 21
+frame_dig 4
+intc_0 // 0
+frame_dig 21
+callsub signedmax_13
+>=
+assert
+frame_dig 2
+intc_0 // 0
+frame_dig 21
+callsub signedneg_7
+callsub signedmax_13
+>=
+assert
+frame_dig -1
+intc_0 // 0
+frame_dig 21
+callsub signedmin_12
+callsub signedadd_9
+intc_0 // 0
+frame_dig 21
+callsub signedneg_7
+callsub signedmin_12
+callsub signedmax_13
+frame_bury 33
+frame_dig -1
+frame_dig 33
+callsub signedsub_10
+frame_bury 34
+frame_dig 4
+frame_dig 33
+callsub signedadd_9
+frame_bury 4
+frame_dig 2
+frame_dig 34
+callsub signedsub_10
+frame_bury 2
+frame_dig 4
+frame_dig 2
+>=
+assert
+frame_dig 21
+frame_dig -1
+callsub signedadd_9
+frame_bury 21
+frame_dig 26
+frame_dig -1
+callsub signedsub_10
+frame_bury 25
+frame_dig 25
+intc_2 // 9223372036854775808
+&
+!
+assert
+frame_dig 21
+intc_2 // 9223372036854775808
+&
+bnz performpoolmove_14_l15
+frame_dig 8
+performpoolmove_14_l14:
+frame_bury 23
+frame_dig 25
+itob
+frame_dig 21
+itob
+concat
+frame_dig 23
+itob
+concat
+frame_bury 20
+frame_dig -3
+frame_dig -2
+pushint 24 // 24
+*
+frame_dig 20
+box_replace
+b performpoolmove_14_l22
+performpoolmove_14_l15:
+frame_dig 6
+b performpoolmove_14_l14
+performpoolmove_14_l16:
+frame_dig 22
+callsub signedneg_7
+frame_dig 6
+mulw
+intc_0 // 0
+frame_dig 24
+divmodw
+pop
+pop
+swap
+!
+assert
+callsub signedneg_7
+b performpoolmove_14_l12
+performpoolmove_14_l17:
+intc_0 // 0
+b performpoolmove_14_l12
+performpoolmove_14_l18:
+intc_3 // 1000000000000
+b performpoolmove_14_l8
+performpoolmove_14_l19:
+intc_3 // 1000000000000
+b performpoolmove_14_l6
+performpoolmove_14_l20:
+frame_dig 17
+frame_dig 27
+frame_dig 18
+frame_dig 17
+-
+mulw
+intc_0 // 0
+frame_dig 16
+divmodw
+pop
+pop
+swap
+!
+assert
++
+b performpoolmove_14_l4
+performpoolmove_14_l21:
+intc_0 // 0
+b performpoolmove_14_l2
+performpoolmove_14_l22:
+frame_dig 10
+itob
+frame_dig 11
+itob
+extract 6 0
+concat
+frame_dig 12
+itob
+extract 6 0
+concat
+frame_dig 13
+itob
+extract 6 0
+concat
+frame_dig 14
+itob
+extract 6 0
+concat
+frame_dig 0
+itob
+extract 4 0
+concat
+frame_dig 6
+itob
+concat
+frame_dig 8
+itob
+concat
+frame_dig 15
+itob
+extract 6 0
+concat
+frame_dig 17
+itob
+concat
+frame_dig 18
+itob
+concat
+frame_dig 19
+itob
+concat
+frame_dig 2
+itob
+concat
+frame_dig 4
+itob
+concat
+frame_bury 36
+bytec_3 // "i"
+frame_dig -2
+pushint 78 // 78
+*
+frame_dig 36
+box_replace
+retsub
+
+// get_normalized_price
+getnormalizedprice_15:
+proto 1 1
+intc_0 // 0
+bytec_0 // ""
+dupn 2
+intc_0 // 0
+dupn 3
+bytec 4 // "p"
+app_global_get
+frame_bury 4
+frame_dig -1
+pushint 92 // 92
+*
+frame_bury 5
+frame_dig 5
+pushint 127 // 127
+/
+frame_bury 6
+frame_dig 5
+pushint 92 // 92
++
+pushint 127 // 127
+/
+frame_bury 7
+frame_dig 4
+frame_dig 6
+itob
+extract 7 1
+app_global_get_ex
+store 8
+store 7
+load 8
+assert
+load 7
+store 6
+frame_dig 6
+frame_dig 7
+<
+bz getnormalizedprice_15_l2
+frame_dig 4
+frame_dig 7
+itob
+extract 7 1
+app_global_get_ex
+store 10
+store 9
+load 10
+assert
+load 6
+load 9
+concat
+store 6
+getnormalizedprice_15_l2:
+load 6
+frame_dig 5
+pushint 127 // 127
+%
+pushint 92 // 92
+extract3
+frame_bury 3
+frame_dig 3
+pushint 8 // 8
+extract_uint64
+frame_bury 0
+retsub
+
+// health_check
+healthcheck_16:
+proto 2 1
+intc_0 // 0
+dup
+bytec_0 // ""
+intc_0 // 0
+dupn 3
+bytec_0 // ""
+intc_0 // 0
+dupn 8
+intc_0 // 0
+frame_bury 0
+frame_dig -2
+callsub getuserinstrumentcount_4
+frame_bury 1
+intc_0 // 0
+frame_bury 6
+frame_dig 6
+intc 5 // 256
+<
+assert
+healthcheck_16_l1:
+frame_dig 6
+frame_dig 1
+<
+bz healthcheck_16_l17
+frame_dig -2
+frame_dig 6
+callsub getposition_3
+frame_bury 2
+frame_dig 2
+intc_0 // 0
+extract_uint64
+frame_bury 3
+frame_dig 2
+pushint 8 // 8
+extract_uint64
+frame_bury 4
+frame_dig 2
+pushint 16 // 16
+extract_uint64
+frame_bury 5
+frame_dig 3
+frame_dig 4
+|
+bnz healthcheck_16_l4
+healthcheck_16_l3:
+frame_dig 6
+intc_1 // 1
++
+frame_bury 6
+frame_dig 6
+intc 5 // 256
+<
+assert
+b healthcheck_16_l1
+healthcheck_16_l4:
+frame_dig 6
+callsub getnormalizedprice_15
+frame_bury 14
+frame_dig 6
+callsub getinstrument_2
+frame_bury 7
+frame_dig 4
+intc_0 // 0
+!=
+bnz healthcheck_16_l14
+intc_0 // 0
+frame_bury 10
+intc_0 // 0
+frame_bury 8
+healthcheck_16_l6:
+frame_dig 3
+frame_dig 8
+callsub signedadd_9
+frame_bury 9
+frame_dig -1
+bnz healthcheck_16_l13
+frame_dig 7
+pushint 8 // 8
+extract_uint16
+frame_bury 11
+frame_dig 7
+pushint 10 // 10
+extract_uint16
+frame_bury 12
+healthcheck_16_l8:
+frame_dig 7
+pushint 36 // 36
+extract_uint16
+frame_bury 13
+frame_dig 9
+intc_2 // 9223372036854775808
+&
+bnz healthcheck_16_l12
+frame_dig 0
+frame_dig 14
+frame_dig 9
+mulw
+intc 4 // 1000
+frame_dig 11
+-
+uncover 2
+dig 1
+*
+cover 2
+mulw
+cover 2
++
+swap
+intc_0 // 0
+intc_3 // 1000000000000
+divmodw
+pop
+pop
+swap
+!
+assert
+callsub signedadd_9
+frame_bury 0
+healthcheck_16_l10:
+frame_dig 10
+bz healthcheck_16_l3
+frame_dig 0
+frame_dig 14
+frame_dig 8
+mulw
+intc 4 // 1000
+frame_dig 11
+-
+uncover 2
+dig 1
+*
+cover 2
+mulw
+cover 2
++
+swap
+frame_dig 13
+uncover 2
+dig 1
+*
+cover 2
+mulw
+cover 2
++
+swap
+intc_0 // 0
+intc 8 // 1000000000000000
+divmodw
+pop
+pop
+swap
+!
+assert
+callsub signedsub_10
+frame_bury 0
+b healthcheck_16_l3
+healthcheck_16_l12:
+frame_dig 0
+frame_dig 14
+frame_dig 9
+callsub signedneg_7
+mulw
+intc 4 // 1000
+frame_dig 12
++
+uncover 2
+dig 1
+*
+cover 2
+mulw
+cover 2
++
+swap
+intc_0 // 0
+intc_3 // 1000000000000
+divmodw
+pop
+pop
+swap
+!
+assert
+callsub signedsub_10
+frame_bury 0
+b healthcheck_16_l10
+healthcheck_16_l13:
+frame_dig 7
+pushint 12 // 12
+extract_uint16
+frame_bury 11
+frame_dig 7
+pushint 14 // 14
+extract_uint16
+frame_bury 12
+b healthcheck_16_l8
+healthcheck_16_l14:
+frame_dig 4
+intc_2 // 9223372036854775808
+&
+!
+frame_bury 10
+frame_dig 10
+bnz healthcheck_16_l16
+frame_dig 7
+pushint 20 // 20
+extract_uint64
+frame_bury 16
+frame_dig 4
+callsub signedneg_7
+frame_dig 16
+mulw
+intc_0 // 0
+frame_dig 5
+divmodw
+pop
+pop
+swap
+!
+assert
+callsub signedneg_7
+frame_bury 8
+b healthcheck_16_l6
+healthcheck_16_l16:
+frame_dig 7
+pushint 28 // 28
+extract_uint64
+frame_bury 15
+frame_dig 4
+frame_dig 15
+mulw
+intc_0 // 0
+frame_dig 5
+divmodw
+pop
+pop
+swap
+!
+assert
+frame_bury 8
+b healthcheck_16_l6
+healthcheck_16_l17:
+frame_dig -2
+frame_dig 0
+itob
+concat
+log
+retsub
+
+// signed_add_to_cash
+signedaddtocash_17:
+proto 3 0
+bytec_0 // ""
+intc_0 // 0
+dupn 5
+bytec_0 // ""
+dup
+frame_dig -3
+frame_dig -2
+callsub getposition_3
+frame_bury 0
+frame_dig 0
+intc_0 // 0
+extract_uint64
+frame_bury 2
+frame_dig -1
+frame_dig 2
+callsub signedadd_9
+frame_bury 1
+frame_dig 1
+intc_2 // 9223372036854775808
+&
+!
+assert
+frame_dig 0
+pushint 8 // 8
+extract_uint64
+frame_bury 3
+frame_dig 0
+pushint 16 // 16
+extract_uint64
+frame_bury 4
+frame_dig 1
+itob
+frame_dig 3
+itob
+concat
+frame_dig 4
+itob
+concat
+frame_bury 0
+frame_dig -3
+frame_dig -2
+pushint 24 // 24
+*
+frame_dig 0
+box_replace
+retsub
+
+// signed_add_to_pool
+signedaddtopool_18:
+proto 3 0
+bytec_0 // ""
+intc_0 // 0
+dupn 5
+bytec_0 // ""
+dup
+frame_dig -3
+frame_dig -2
+callsub getposition_3
+frame_bury 0
+frame_dig 0
+pushint 8 // 8
+extract_uint64
+frame_bury 2
+frame_dig -1
+frame_dig 2
+callsub signedadd_9
+frame_bury 1
+frame_dig 0
+intc_0 // 0
+extract_uint64
+frame_bury 3
+frame_dig 0
+pushint 16 // 16
+extract_uint64
+frame_bury 4
+frame_dig 3
+itob
+frame_dig 1
+itob
+concat
+frame_dig 4
+itob
+concat
+frame_bury 0
+frame_dig -3
+frame_dig -2
+pushint 24 // 24
+*
+frame_dig 0
+box_replace
+retsub
+
+// signed_account_move_baskets
+signedaccountmovebaskets_19:
+proto 6 0
+intc_0 // 0
+dupn 2
+bytec_0 // ""
+intc_0 // 0
+dupn 4
+bytec_0 // ""
+intc_0 // 0
+dupn 3
+frame_dig -4
+intc_0 // 0
+extract_uint16
+frame_bury 2
+frame_dig 2
+frame_bury 1
+intc_0 // 0
+frame_bury 0
+signedaccountmovebaskets_19_l1:
+frame_dig 0
+frame_dig 1
+<
+bnz signedaccountmovebaskets_19_l7
+frame_dig -3
+intc_0 // 0
+extract_uint16
+frame_bury 8
+frame_dig 8
+frame_bury 1
+intc_0 // 0
+frame_bury 0
+signedaccountmovebaskets_19_l3:
+frame_dig 0
+frame_dig 1
+<
+bz signedaccountmovebaskets_19_l10
+frame_dig -3
+pushint 9 // 9
+frame_dig 0
+*
+pushint 2 // 2
++
+pushint 9 // 9
+extract3
+frame_bury 9
+frame_dig 9
+intc_0 // 0
+getbyte
+frame_bury 11
+frame_dig 9
+intc_1 // 1
+extract_uint64
+frame_bury 12
+frame_dig -1
+!
+frame_dig 12
+intc_2 // 9223372036854775808
+&
+&&
+bnz signedaccountmovebaskets_19_l6
+frame_dig 12
+callsub signedneg_7
+frame_bury 13
+frame_dig -6
+frame_dig 11
+frame_dig 13
+callsub signedaddtopool_18
+frame_dig -5
+frame_dig 11
+frame_dig 12
+callsub signedaddtopool_18
+frame_dig 0
+intc_1 // 1
++
+frame_bury 0
+b signedaccountmovebaskets_19_l3
+signedaccountmovebaskets_19_l6:
+intc_0 // 0
+return
+signedaccountmovebaskets_19_l7:
+frame_dig -4
+pushint 9 // 9
+frame_dig 0
+*
+pushint 2 // 2
++
+pushint 9 // 9
+extract3
+frame_bury 3
+frame_dig 3
+intc_0 // 0
+getbyte
+frame_bury 5
+frame_dig 3
+intc_1 // 1
+extract_uint64
+frame_bury 6
+frame_dig -2
+!
+frame_dig 6
+intc_2 // 9223372036854775808
+&
+&&
+bnz signedaccountmovebaskets_19_l9
+frame_dig 6
+callsub signedneg_7
+frame_bury 7
+frame_dig -6
+frame_dig 5
+frame_dig 7
+callsub signedaddtocash_17
+frame_dig -5
+frame_dig 5
+frame_dig 6
+callsub signedaddtocash_17
+frame_dig 0
+intc_1 // 1
++
+frame_bury 0
+b signedaccountmovebaskets_19_l1
+signedaccountmovebaskets_19_l9:
+intc_0 // 0
+return
+signedaccountmovebaskets_19_l10:
+retsub
+
+// collect_fees
+collectfees_20:
+proto 2 0
+bytec_0 // ""
+bytec 5 // "f"
+app_global_get
+frame_bury 0
+frame_dig 0
+len
+pushint 32 // 32
+==
+assert
+frame_dig 0
+frame_dig -2
+frame_dig -1
+callsub signedaddtocash_17
+retsub
+
+// sender_is_sig_validator
+senderissigvalidator_21:
+proto 0 0
+bytec 6 // "s"
+app_global_get
+txn Sender
+==
+assert
+retsub
+
+// update
+update_22:
+proto 0 0
+global CreatorAddress
+txn Sender
+==
+assert
+retsub
+
+// delete
+delete_23:
+proto 0 0
+global CreatorAddress
+txn Sender
+==
+assert
+retsub
+
+// calculate_basket_value
+calculatebasketvalue_24:
+proto 6 1
+intc_0 // 0
+dupn 2
+bytec_0 // ""
+intc_0 // 0
+bytec_0 // ""
+intc_0 // 0
+dupn 9
+intc_0 // 0
+frame_bury 0
+frame_dig -6
+intc_0 // 0
+extract_uint16
+frame_bury 9
+frame_dig 9
+frame_bury 1
+intc_0 // 0
+frame_bury 2
+frame_dig 2
+intc 5 // 256
+<
+assert
+calculatebasketvalue_24_l1:
+frame_dig 2
+frame_dig 1
+<
+bz calculatebasketvalue_24_l16
+frame_dig -6
+pushint 9 // 9
+frame_dig 2
+*
+pushint 2 // 2
++
+pushint 9 // 9
+extract3
+frame_bury 3
+frame_dig 3
+intc_0 // 0
+getbyte
+frame_bury 11
+frame_dig 3
+intc_1 // 1
+extract_uint64
+frame_bury 12
+frame_dig 12
+intc_2 // 9223372036854775808
+&
+intc_0 // 0
+!=
+frame_dig -5
+==
+bnz calculatebasketvalue_24_l4
+calculatebasketvalue_24_l3:
+frame_dig 2
+intc_1 // 1
++
+frame_bury 2
+frame_dig 2
+intc 5 // 256
+<
+assert
+b calculatebasketvalue_24_l1
+calculatebasketvalue_24_l4:
+frame_dig 11
+callsub getnormalizedprice_15
+frame_bury 4
+frame_dig 11
+callsub getinstrument_2
+frame_bury 5
+frame_dig -3
+bnz calculatebasketvalue_24_l12
+frame_dig -2
+bnz calculatebasketvalue_24_l11
+frame_dig 5
+pushint 8 // 8
+extract_uint16
+frame_bury 14
+intc 4 // 1000
+frame_dig 14
+-
+frame_bury 6
+frame_dig 6
+intc 6 // 65536
+<
+assert
+calculatebasketvalue_24_l7:
+frame_dig -1
+bnz calculatebasketvalue_24_l10
+intc 4 // 1000
+frame_bury 7
+frame_dig 7
+intc 6 // 65536
+<
+assert
+calculatebasketvalue_24_l9:
+frame_dig 0
+frame_dig 12
+callsub signedabs_8
+frame_dig 4
+mulw
+frame_dig 6
+uncover 2
+dig 1
+*
+cover 2
+mulw
+cover 2
++
+swap
+frame_dig 7
+uncover 2
+dig 1
+*
+cover 2
+mulw
+cover 2
++
+swap
+intc_0 // 0
+intc 8 // 1000000000000000
+divmodw
+pop
+pop
+swap
+!
+assert
++
+frame_bury 0
+b calculatebasketvalue_24_l3
+calculatebasketvalue_24_l10:
+frame_dig 5
+pushint 36 // 36
+extract_uint16
+frame_bury 15
+intc 4 // 1000
+frame_dig 15
+-
+frame_bury 7
+frame_dig 7
+intc 6 // 65536
+<
+assert
+b calculatebasketvalue_24_l9
+calculatebasketvalue_24_l11:
+frame_dig 5
+pushint 10 // 10
+extract_uint16
+frame_bury 13
+intc 4 // 1000
+frame_dig 13
++
+frame_bury 6
+frame_dig 6
+intc 6 // 65536
+<
+assert
+b calculatebasketvalue_24_l7
+calculatebasketvalue_24_l12:
+frame_dig 5
+pushint 12 // 12
+extract_uint16
+frame_bury 6
+intc 4 // 1000
+frame_dig -4
+frame_dig 6
+mulw
+intc_0 // 0
+intc 4 // 1000
+divmodw
+pop
+pop
+swap
+!
+assert
++
+frame_bury 8
+frame_dig 0
+frame_dig -2
+bnz calculatebasketvalue_24_l15
+frame_dig 12
+callsub signedabs_8
+frame_dig 4
+mulw
+frame_dig 8
+uncover 2
+dig 1
+*
+cover 2
+mulw
+cover 2
++
+swap
+intc_0 // 0
+intc_3 // 1000000000000
+divmodw
+pop
+pop
+swap
+!
+assert
+calculatebasketvalue_24_l14:
++
+frame_bury 0
+b calculatebasketvalue_24_l3
+calculatebasketvalue_24_l15:
+frame_dig 12
+callsub signedabs_8
+frame_dig 4
+mulw
+intc 4 // 1000
+uncover 2
+dig 1
+*
+cover 2
+mulw
+cover 2
++
+swap
+frame_dig 8
+intc 9 // 1000000000
+mulw
+divmodw
+pop
+pop
+swap
+!
+assert
+b calculatebasketvalue_24_l14
+calculatebasketvalue_24_l16:
+retsub
+
+// scale_basket
+scalebasket_25:
+proto 3 1
+bytec_0 // ""
+intc_0 // 0
+dupn 2
+bytec_0 // ""
+intc_0 // 0
+dupn 2
+frame_dig -3
+intc_0 // 0
+extract_uint16
+frame_bury 3
+frame_dig 3
+frame_bury 1
+frame_dig 1
+itob
+extract 6 2
+store 16
+intc_0 // 0
+frame_bury 2
+frame_dig 2
+intc 5 // 256
+<
+assert
+scalebasket_25_l1:
+frame_dig 2
+frame_dig 1
+<
+bz scalebasket_25_l6
+frame_dig -3
+pushint 9 // 9
+frame_dig 2
+*
+pushint 2 // 2
++
+pushint 9 // 9
+extract3
+frame_bury 4
+frame_dig 4
+intc_0 // 0
+getbyte
+frame_bury 6
+frame_dig 4
+intc_1 // 1
+extract_uint64
+frame_bury 7
+load 16
+frame_dig 6
+itob
+extract 7 1
+concat
+frame_dig 7
+intc_2 // 9223372036854775808
+&
+bnz scalebasket_25_l5
+frame_dig 7
+frame_dig -2
+mulw
+intc_0 // 0
+frame_dig -1
+divmodw
+pop
+pop
+swap
+!
+assert
+itob
+scalebasket_25_l4:
+concat
+store 16
+frame_dig 2
+intc_1 // 1
++
+frame_bury 2
+frame_dig 2
+intc 5 // 256
+<
+assert
+b scalebasket_25_l1
+scalebasket_25_l5:
+frame_dig 7
+callsub signedneg_7
+frame_dig -2
+mulw
+intc_0 // 0
+frame_dig -1
+divmodw
+pop
+pop
+swap
+!
+assert
+callsub signedneg_7
+itob
+b scalebasket_25_l4
+scalebasket_25_l6:
+load 16
+frame_bury 0
+retsub
+
+// closer_to_zero
+closertozero_26:
+proto 2 0
+intc_0 // 0
+dup
+bytec_0 // ""
+intc_0 // 0
+dupn 3
+bytec_0 // ""
+intc_0 // 0
+frame_dig -1
+intc_0 // 0
+extract_uint16
+frame_bury 6
+frame_dig 6
+frame_bury 0
+intc_0 // 0
+frame_bury 1
+frame_dig 1
+intc 5 // 256
+<
+assert
+closertozero_26_l1:
+frame_dig 1
+frame_dig 0
+<
+bz closertozero_26_l6
+frame_dig -1
+pushint 9 // 9
+frame_dig 1
+*
+pushint 2 // 2
++
+pushint 9 // 9
+extract3
+frame_bury 7
+frame_dig 7
+intc_0 // 0
+getbyte
+frame_bury 3
+frame_dig 7
+intc_1 // 1
+extract_uint64
+frame_bury 5
+frame_dig -2
+frame_dig 3
+callsub getposition_3
+frame_bury 2
+frame_dig 2
+pushint 8 // 8
+extract_uint64
+frame_bury 4
+frame_dig 4
+intc_2 // 9223372036854775808
+&
+bnz closertozero_26_l5
+frame_dig 5
+intc_2 // 9223372036854775808
+&
+!
+frame_dig 4
+frame_dig 5
+callsub signedgte_11
+&&
+assert
+closertozero_26_l4:
+frame_dig 1
+intc_1 // 1
++
+frame_bury 1
+frame_dig 1
+intc 5 // 256
+<
+assert
+b closertozero_26_l1
+closertozero_26_l5:
+frame_dig 5
+intc_2 // 9223372036854775808
+&
+frame_dig 5
+intc_0 // 0
+==
+||
+frame_dig 5
+frame_dig 4
+callsub signedgte_11
+&&
+assert
+b closertozero_26_l4
+closertozero_26_l6:
+retsub
+
+// setup
+setup_27:
+proto 1 0
+intc_0 // 0
+dup
+txna Applications 1
+frame_bury 0
+frame_dig -1
+frame_bury 1
+setup_27_l1:
+frame_dig 1
+global MinTxnFee
+>=
+bz setup_27_l3
+itxn_begin
+pushint 6 // appl
+itxn_field TypeEnum
+frame_dig 0
+itxn_field ApplicationID
+pushbytes 0x58759fa2 // "nop()void"
+itxn_field ApplicationArgs
+intc_0 // 0
+itxn_field Fee
+itxn_submit
+frame_dig 1
+global MinTxnFee
+-
+frame_bury 1
+b setup_27_l1
+setup_27_l3:
+retsub
+
+// account_move
+accountmove_28:
+proto 5 0
+intc_0 // 0
+bytec_0 // ""
+dupn 7
+intc_0 // 0
+dupn 4
+bytec_0 // ""
+intc_0 // 0
+dup
+bytec_0 // ""
+intc_0 // 0
+dup
+frame_dig -1
+callsub setup_27
+intc_0 // 0
+!
+!
+frame_bury 0
+intc_0 // 0
+frame_bury 12
+callsub senderissigvalidator_21
+frame_dig -3
+intc_0 // 0
+extract_uint16
+frame_bury 13
+frame_dig 13
+intc_0 // 0
+==
+assert
+frame_dig -4
+frame_dig -4
+pushint 72 // 72
+extract_uint16
+frame_dig -4
+pushint 74 // 74
+extract_uint16
+substring3
+frame_bury 14
+frame_dig 14
+extract 2 0
+frame_bury 3
+frame_dig 3
+intc_0 // 0
+getbyte
+frame_bury 15
+frame_dig 15
+pushint 5 // 5
+==
+assert
+frame_dig 3
+extract 1 32
+frame_bury 8
+frame_dig 3
+frame_dig 3
+pushint 33 // 33
+extract_uint16
+frame_dig 3
+pushint 35 // 35
+extract_uint16
+substring3
+frame_bury 5
+frame_dig 3
+frame_dig 3
+pushint 35 // 35
+extract_uint16
+dig 1
+len
+substring3
+frame_bury 7
+frame_dig -5
+frame_dig 8
+!=
+assert
+frame_dig -5
+frame_dig 7
+callsub closertozero_26
+frame_dig 7
+intc_0 // 0
+extract_uint16
+frame_bury 16
+frame_dig 16
+frame_bury 11
+intc_0 // 0
+frame_bury 10
+accountmove_28_l1:
+frame_dig 10
+frame_dig 11
+<
+bz accountmove_28_l3
+frame_dig 7
+pushint 9 // 9
+frame_dig 10
+*
+pushint 2 // 2
++
+pushint 9 // 9
+extract3
+frame_bury 17
+frame_dig 17
+intc_0 // 0
+getbyte
+frame_bury 19
+frame_dig -5
+frame_dig 19
+frame_dig 12
+callsub performpoolmove_14
+frame_dig 8
+frame_dig 19
+frame_dig 12
+callsub performpoolmove_14
+frame_dig 10
+intc_1 // 1
++
+frame_bury 10
+b accountmove_28_l1
+accountmove_28_l3:
+frame_dig -5
+frame_dig 8
+frame_dig 5
+frame_dig 7
+frame_dig 0
+frame_dig 0
+callsub signedaccountmovebaskets_19
+frame_dig -5
+frame_dig 0
+callsub healthcheck_16
+frame_bury 9
+frame_dig 9
+intc_2 // 9223372036854775808
+&
+!
+assert
+retsub
+
+// get_order_id
+getorderid_29:
+proto 1 1
+bytec_0 // ""
+pushbytes 0x6f72646572 // "order"
+frame_dig -1
+sha512_256
+concat
+frame_bury 0
+pushint 37 // 37
+frame_dig 0
+len
+==
+assert
+retsub
+
+// add_order
+addorder_30:
+proto 1 0
+bytec_0 // ""
+dup
+intc_0 // 0
+dupn 4
+bytec_0 // ""
+dup
+frame_dig -1
+callsub getorderid_29
+frame_bury 0
+frame_dig 0
+box_len
+store 13
+store 12
+load 13
+bz addorder_30_l2
+retsub
+addorder_30_l2:
+frame_dig -1
+pushint 50 // 50
+extract_uint64
+frame_bury 2
+frame_dig -1
+pushint 58 // 58
+extract_uint64
+frame_bury 3
+frame_dig -1
+pushint 75 // 75
+extract_uint64
+frame_bury 4
+frame_dig 2
+itob
+frame_dig 3
+itob
+concat
+frame_dig 4
+itob
+concat
+frame_bury 1
+frame_dig 0
+frame_dig 1
+box_put
+callsub ensurembrfund_1
+retsub
+
+// get_order_onchain
+getorderonchain_31:
+proto 1 1
+bytec_0 // ""
+frame_dig -1
+box_get
+store 15
+store 14
+load 15
+assert
+load 14
+frame_bury 0
+retsub
+
+// clean_orders
+cleanorders_32:
+proto 1 0
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+intc_0 // 0
+dupn 2
+frame_dig -1
+intc_0 // 0
+extract_uint16
+frame_bury 4
+frame_dig 4
+frame_bury 1
+intc_0 // 0
+frame_bury 0
+cleanorders_32_l1:
+frame_dig 0
+frame_dig 1
+<
+bz cleanorders_32_l5
+frame_dig -1
+pushint 83 // 83
+frame_dig 0
+*
+pushint 2 // 2
++
+pushint 83 // 83
+extract3
+frame_bury 2
+frame_dig 2
+pushint 41 // 41
+extract_uint64
+frame_bury 6
+global LatestTimestamp
+frame_dig 6
+>
+bnz cleanorders_32_l4
+cleanorders_32_l3:
+frame_dig 0
+intc_1 // 1
++
+frame_bury 0
+b cleanorders_32_l1
+cleanorders_32_l4:
+frame_dig 2
+callsub getorderid_29
+frame_bury 3
+frame_dig 3
+box_del
+pop
+b cleanorders_32_l3
+cleanorders_32_l5:
+retsub
+
+// create
+create_33:
+proto 9 0
+bytec_0 // ""
+dup
+frame_dig -1
+callsub setup_27
+bytec 12 // "t"
+global LatestTimestamp
+app_global_put
+bytec_1 // "c"
+intc_0 // 0
+app_global_put
+bytec 4 // "p"
+frame_dig -9
+btoi
+app_global_put
+bytec 7 // "b"
+frame_dig -8
+btoi
+app_global_put
+frame_dig -7
+len
+pushint 4 // 4
+==
+assert
+bytec 8 // "l"
+frame_dig -7
+app_global_put
+bytec 9 // "w"
+frame_dig -6
+callsub setaddress_0
+bytec 6 // "s"
+frame_dig -5
+callsub setaddress_0
+bytec 10 // "o"
+frame_dig -4
+callsub setaddress_0
+bytec_2 // "q"
+frame_dig -3
+callsub setaddress_0
+bytec 5 // "f"
+frame_dig -2
+callsub setaddress_0
+retsub
+
+// inner_deposit_asset
+innerdepositasset_34:
+proto 5 0
+callsub senderissigvalidator_21
+frame_dig -4
+pushbytes 0x6465706f736974 // "deposit"
+==
+assert
+frame_dig -2
+intc_2 // 9223372036854775808
+&
+frame_dig -1
+intc_2 // 9223372036854775808
+&
+||
+!
+assert
+frame_dig -5
+frame_dig -3
+frame_dig -2
+callsub signedaddtocash_17
+frame_dig -1
+intc_0 // 0
+!=
+bz innerdepositasset_34_l2
+frame_dig -5
+frame_dig -3
+frame_dig -1
+callsub performpoolmove_14
+innerdepositasset_34_l2:
+retsub
+
+// deposit
+deposit_35:
+proto 6 0
+intc_0 // 0
+dup
+bytec_0 // ""
+intc_0 // 0
+frame_dig -1
+callsub setup_27
+frame_dig -5
+gtxns RekeyTo
+global ZeroAddress
+==
+frame_dig -5
+gtxns AssetCloseTo
+global ZeroAddress
+==
+&&
+assert
+frame_dig -5
+gtxns TypeEnum
+pushint 4 // axfer
+==
+bnz deposit_35_l4
+frame_dig -5
+gtxns TypeEnum
+intc_1 // pay
+==
+bnz deposit_35_l3
+err
+deposit_35_l3:
+frame_dig -5
+gtxns Receiver
+global CurrentApplicationAddress
+==
+assert
+intc_0 // 0
+frame_bury 0
+frame_dig -5
+gtxns Amount
+frame_bury 1
+b deposit_35_l5
+deposit_35_l4:
+frame_dig -5
+gtxns AssetReceiver
+global CurrentApplicationAddress
+==
+assert
+frame_dig -5
+gtxns XferAsset
+frame_bury 0
+frame_dig -5
+gtxns AssetAmount
+frame_bury 1
+deposit_35_l5:
+frame_dig -3
+callsub getinstrument_2
+frame_bury 2
+frame_dig 2
+intc_0 // 0
+extract_uint64
+frame_bury 3
+frame_dig 0
+frame_dig 3
+==
+assert
+frame_dig -6
+frame_dig -4
+frame_dig -3
+frame_dig 1
+frame_dig -2
+callsub innerdepositasset_34
+retsub
+
+// fund_mbr
+fundmbr_36:
+proto 1 0
+frame_dig -1
+gtxns Receiver
+global CurrentApplicationAddress
+==
+assert
+bytec 11 // "m"
+bytec 11 // "m"
+app_global_get
+frame_dig -1
+gtxns Amount
++
+app_global_put
+retsub
+
+// perform_netting
+performnetting_37:
+proto 2 0
+intc_0 // 0
+dupn 2
+bytec_0 // ""
+intc_0 // 0
+dupn 2
+intc_0 // 0
+frame_bury 6
+frame_dig -2
+callsub getuserinstrumentcount_4
+frame_bury 0
+intc_0 // 0
+frame_bury 1
+frame_dig 1
+intc 5 // 256
+<
+assert
+performnetting_37_l1:
+frame_dig 1
+frame_dig 0
+<
+bz performnetting_37_l8
+frame_dig -2
+frame_dig 1
+callsub getposition_3
+frame_bury 3
+frame_dig 3
+intc_0 // 0
+extract_uint64
+frame_bury 2
+frame_dig 3
+pushint 8 // 8
+extract_uint64
+frame_bury 4
+frame_dig 4
+intc_0 // 0
+!=
+bnz performnetting_37_l4
+performnetting_37_l3:
+frame_dig 1
+intc_1 // 1
++
+frame_bury 1
+frame_dig 1
+intc 5 // 256
+<
+assert
+b performnetting_37_l1
+performnetting_37_l4:
+frame_dig 4
+intc_2 // 9223372036854775808
+&
+bnz performnetting_37_l7
+intc_0 // 0
+frame_bury 5
+performnetting_37_l6:
+frame_dig -2
+frame_dig 1
+frame_dig 5
+callsub performpoolmove_14
+frame_dig -1
+frame_dig 1
+frame_dig 6
+callsub performpoolmove_14
+b performnetting_37_l3
+performnetting_37_l7:
+frame_dig 2
+frame_dig 4
+callsub signedneg_7
+callsub unsignedmin_5
+frame_bury 5
+b performnetting_37_l6
+performnetting_37_l8:
+retsub
+
+// liquidate
+liquidate_38:
+proto 5 0
+intc_0 // 0
+dupn 2
+bytec_0 // ""
+dupn 3
+intc_0 // 0
+bytec_0 // ""
+dupn 3
+intc_0 // 0
+bytec_0 // ""
+intc_0 // 0
+dupn 6
+bytec_0 // ""
+intc_0 // 0
+frame_dig -1
+callsub setup_27
+intc_0 // 0
+!
+!
+frame_bury 0
+intc_1 // 1
+!
+!
+frame_bury 1
+intc_0 // 0
+frame_bury 2
+frame_dig 2
+intc 6 // 65536
+<
+assert
+callsub senderissigvalidator_21
+frame_dig -4
+frame_dig -4
+pushint 72 // 72
+extract_uint16
+frame_dig -4
+pushint 74 // 74
+extract_uint16
+substring3
+frame_bury 21
+frame_dig 21
+extract 2 0
+frame_bury 5
+frame_dig 5
+intc_0 // 0
+getbyte
+frame_bury 22
+frame_dig 22
+pushint 4 // 4
+==
+assert
+frame_dig 5
+extract 1 32
+frame_bury 6
+frame_dig 5
+frame_dig 5
+pushint 33 // 33
+extract_uint16
+frame_dig 5
+pushint 35 // 35
+extract_uint16
+substring3
+frame_bury 9
+frame_dig 5
+frame_dig 5
+pushint 35 // 35
+extract_uint16
+dig 1
+len
+substring3
+frame_bury 11
+frame_dig 6
+frame_dig -5
+!=
+assert
+frame_dig 6
+frame_dig 1
+callsub healthcheck_16
+frame_bury 7
+frame_dig 7
+intc_2 // 9223372036854775808
+&
+assert
+frame_dig 6
+frame_dig -5
+callsub performnetting_37
+bytec 8 // "l"
+app_global_get
+frame_bury 13
+frame_dig 13
+intc_0 // 0
+extract_uint16
+frame_bury 14
+frame_dig 13
+pushint 2 // 2
+extract_uint16
+frame_bury 15
+frame_dig 6
+frame_dig 11
+callsub closertozero_26
+frame_dig 9
+frame_dig 0
+frame_dig 14
+frame_dig 1
+frame_dig 1
+frame_dig 0
+callsub calculatebasketvalue_24
+frame_bury 16
+frame_dig 11
+frame_dig 0
+frame_dig 15
+frame_dig 1
+frame_dig 1
+frame_dig 0
+callsub calculatebasketvalue_24
+frame_bury 17
+frame_dig 11
+frame_dig 1
+frame_dig 14
+frame_dig 1
+frame_dig 0
+frame_dig 0
+callsub calculatebasketvalue_24
+frame_bury 18
+frame_dig 16
+frame_dig 17
++
+frame_dig 18
+<=
+assert
+frame_dig 6
+frame_dig 0
+callsub healthcheck_16
+frame_bury 19
+frame_dig 9
+frame_dig 0
+frame_dig 2
+frame_dig 0
+frame_dig 0
+frame_dig 0
+callsub calculatebasketvalue_24
+frame_bury 16
+frame_dig 11
+frame_dig 0
+frame_dig 2
+frame_dig 0
+frame_dig 0
+frame_dig 1
+callsub calculatebasketvalue_24
+frame_bury 17
+frame_dig 11
+frame_dig 1
+frame_dig 2
+frame_dig 0
+frame_dig 1
+frame_dig 0
+callsub calculatebasketvalue_24
+frame_bury 18
+frame_dig 18
+frame_dig 16
+frame_dig 17
++
+-
+frame_bury 20
+frame_dig 19
+callsub signedabs_8
+frame_bury 19
+frame_dig 19
+frame_dig 20
+>
+bz liquidate_38_l2
+frame_dig 20
+frame_bury 19
+liquidate_38_l2:
+frame_dig 9
+frame_dig 19
+frame_dig 20
+callsub scalebasket_25
+frame_bury 9
+frame_dig 11
+frame_dig 19
+frame_dig 20
+callsub scalebasket_25
+frame_bury 11
+frame_dig 6
+frame_dig -5
+frame_dig 9
+frame_dig 11
+frame_dig 0
+frame_dig 1
+callsub signedaccountmovebaskets_19
+frame_dig -5
+frame_dig 0
+callsub healthcheck_16
+frame_bury 12
+frame_dig 12
+intc_2 // 9223372036854775808
+&
+!
+assert
+retsub
+
+// pool_move
+poolmove_39:
+proto 5 0
+intc_0 // 0
+dupn 2
+bytec_0 // ""
+intc_0 // 0
+dup
+bytec_0 // ""
+intc_0 // 0
+dupn 2
+bytec_0 // ""
+intc_0 // 0
+frame_dig -1
+callsub setup_27
+intc_0 // 0
+!
+!
+frame_bury 0
+callsub senderissigvalidator_21
+frame_dig -4
+frame_dig -4
+pushint 72 // 72
+extract_uint16
+frame_dig -4
+pushint 74 // 74
+extract_uint16
+substring3
+frame_bury 10
+frame_dig 10
+extract 2 0
+frame_bury 3
+frame_dig 3
+intc_0 // 0
+getbyte
+frame_bury 11
+frame_dig 11
+pushint 2 // 2
+==
+assert
+frame_dig 3
+intc_1 // 1
+getbyte
+frame_bury 4
+frame_dig 3
+pushint 2 // 2
+extract_uint64
+frame_bury 5
+frame_dig -5
+frame_dig 0
+callsub healthcheck_16
+frame_bury 1
+frame_dig -5
+frame_dig 4
+frame_dig 5
+callsub performpoolmove_14
+frame_dig 5
+intc_2 // 9223372036854775808
+&
+bz poolmove_39_l2
+frame_dig 4
+callsub getnormalizedprice_15
+frame_bury 7
+frame_dig -5
+frame_dig 4
+callsub getposition_3
+frame_bury 6
+frame_dig 6
+intc_0 // 0
+extract_uint64
+frame_bury 8
+frame_dig 8
+callsub signedneg_7
+frame_bury 9
+frame_dig -5
+frame_dig 4
+frame_dig 9
+callsub signedaddtocash_17
+frame_dig -5
+frame_dig 0
+callsub healthcheck_16
+frame_bury 2
+frame_dig 2
+frame_dig 7
+frame_dig 8
+mulw
+intc_0 // 0
+intc 9 // 1000000000
+divmodw
+pop
+pop
+swap
+!
+assert
+callsub signedadd_9
+frame_bury 2
+frame_dig 2
+intc_2 // 9223372036854775808
+&
+!
+assert
+frame_dig -5
+frame_dig 4
+frame_dig 8
+callsub signedaddtocash_17
+poolmove_39_l2:
+frame_dig -5
+frame_dig 0
+callsub healthcheck_16
+frame_bury 2
+frame_dig 2
+intc_2 // 9223372036854775808
+&
+!
+frame_dig 2
+frame_dig 1
+callsub signedgte_11
+||
+assert
+retsub
+
+// portal_transfer
+portaltransfer_40:
+proto 1 1
+bytec_0 // ""
+frame_dig -1
+extract 2 0
+len
+intc_0 // 0
+!=
+// Empty VAA
+assert
+pushbytes 0x00 // 0x00
+frame_bury 0
+frame_dig 0
+len
+itob
+extract 6 0
+frame_dig 0
+concat
+frame_bury 0
+retsub
+
+// add_order
+addorder_41:
+proto 4 0
+bytec_0 // ""
+dup
+intc_0 // 0
+bytec_0 // ""
+frame_dig -1
+callsub setup_27
+callsub senderissigvalidator_21
+frame_dig -3
+frame_dig -3
+pushint 72 // 72
+extract_uint16
+frame_dig -3
+pushint 74 // 74
+extract_uint16
+substring3
+frame_bury 1
+frame_dig 1
+extract 2 0
+frame_bury 0
+frame_dig 0
+intc_0 // 0
+getbyte
+frame_bury 2
+frame_dig 2
+pushint 6 // 6
+==
+assert
+frame_dig 0
+extract 1 32
+frame_bury 3
+frame_dig 3
+frame_dig -4
+==
+assert
+frame_dig 0
+callsub addorder_30
+retsub
+
+// settle
+settle_42:
+proto 6 0
+intc_0 // 0
+bytec_0 // ""
+dupn 9
+intc_0 // 0
+dupn 15
+bytec_0 // ""
+dup
+intc_0 // 0
+dupn 22
+bytec_0 // ""
+intc_0 // 0
+bytec_0 // ""
+intc_0 // 0
+dupn 3
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+dup
+frame_dig -1
+callsub setup_27
+intc_0 // 0
+!
+!
+frame_bury 0
+callsub senderissigvalidator_21
+frame_dig -4
+frame_dig -4
+pushint 72 // 72
+extract_uint16
+frame_dig -4
+pushint 74 // 74
+extract_uint16
+substring3
+frame_bury 52
+frame_dig 52
+extract 2 0
+frame_bury 4
+frame_dig 4
+intc_0 // 0
+getbyte
+frame_bury 53
+frame_dig 53
+pushint 6 // 6
+==
+assert
+frame_dig 4
+extract 1 32
+frame_bury 54
+frame_dig 54
+frame_dig -5
+==
+assert
+frame_dig 4
+callsub addorder_30
+frame_dig -6
+gtxns ApplicationID
+global CurrentApplicationID
+==
+assert
+frame_dig -6
+gtxns OnCompletion
+intc_0 // NoOp
+==
+assert
+frame_dig -6
+gtxns NumAppArgs
+pushint 5 // 5
+==
+assert
+frame_dig -6
+intc_0 // 0
+gtxnsas ApplicationArgs
+bytec 13 // "add_order(address,((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[]),((address,byte[32],uint64),byte[],byte[],uint8,byte[],address,byte[])[],uint64)void"
+==
+assert
+frame_dig -6
+intc_1 // 1
+gtxnsas ApplicationArgs
+frame_bury 6
+frame_dig -6
+pushint 2 // 2
+gtxnsas ApplicationArgs
+frame_bury 2
+frame_dig 2
+frame_dig 2
+pushint 72 // 72
+extract_uint16
+frame_dig 2
+pushint 74 // 74
+extract_uint16
+substring3
+frame_bury 3
+frame_dig 3
+extract 2 0
+frame_bury 5
+frame_dig 4
+callsub getorderid_29
+frame_bury 7
+frame_dig 5
+callsub getorderid_29
+frame_bury 8
+frame_dig 7
+callsub getorderonchain_31
+frame_bury 9
+frame_dig 8
+callsub getorderonchain_31
+frame_bury 10
+frame_dig 4
+pushint 49 // 49
+getbyte
+frame_bury 30
+frame_dig 4
+pushint 66 // 66
+getbyte
+frame_bury 29
+frame_dig 5
+pushint 49 // 49
+getbyte
+frame_bury 32
+frame_dig 5
+pushint 66 // 66
+getbyte
+frame_bury 31
+frame_dig 30
+frame_dig 31
+==
+assert
+frame_dig 29
+frame_dig 32
+==
+assert
+frame_dig 4
+pushint 41 // 41
+extract_uint64
+frame_bury 55
+frame_dig 55
+global LatestTimestamp
+>
+assert
+frame_dig 5
+pushint 41 // 41
+extract_uint64
+frame_bury 56
+frame_dig 56
+global LatestTimestamp
+>
+assert
+frame_dig 4
+pushint 50 // 50
+extract_uint64
+frame_bury 11
+frame_dig 4
+pushint 67 // 67
+extract_uint64
+frame_bury 12
+frame_dig 5
+pushint 50 // 50
+extract_uint64
+frame_bury 13
+frame_dig 5
+pushint 67 // 67
+extract_uint64
+frame_bury 14
+frame_dig 11
+itob
+frame_dig 13
+itob
+b*
+frame_dig 12
+itob
+frame_dig 14
+itob
+b*
+b>=
+assert
+frame_dig -2
+pushint 8 // 8
+extract_uint64
+frame_bury 33
+frame_dig -2
+pushint 48 // 48
+extract_uint64
+frame_bury 34
+frame_dig 33
+itob
+frame_dig 13
+itob
+b*
+frame_dig 34
+itob
+frame_dig 14
+itob
+b*
+b>=
+assert
+frame_dig 34
+itob
+frame_dig 11
+itob
+b*
+frame_dig 33
+itob
+frame_dig 12
+itob
+b*
+b>=
+assert
+frame_dig 9
+intc_0 // 0
+extract_uint64
+frame_bury 15
+frame_dig 15
+frame_dig 33
+>=
+assert
+frame_dig 10
+intc_0 // 0
+extract_uint64
+frame_bury 18
+frame_dig 18
+frame_dig 34
+>=
+assert
+frame_dig 9
+pushint 8 // 8
+extract_uint64
+frame_bury 16
+frame_dig -2
+pushint 16 // 16
+extract_uint64
+frame_bury 35
+frame_dig 16
+frame_dig 35
+>=
+assert
+frame_dig 10
+pushint 8 // 8
+extract_uint64
+frame_bury 19
+frame_dig -2
+pushint 56 // 56
+extract_uint64
+frame_bury 36
+frame_dig 19
+frame_dig 36
+>=
+assert
+frame_dig 9
+pushint 16 // 16
+extract_uint64
+frame_bury 17
+frame_dig -2
+pushint 24 // 24
+extract_uint64
+frame_bury 37
+frame_dig 17
+frame_dig 37
+>=
+assert
+frame_dig 10
+pushint 16 // 16
+extract_uint64
+frame_bury 20
+frame_dig -2
+pushint 64 // 64
+extract_uint64
+frame_bury 38
+frame_dig 20
+frame_dig 38
+>=
+assert
+frame_dig -2
+intc_0 // 0
+extract_uint64
+frame_bury 44
+frame_dig -2
+pushint 40 // 40
+extract_uint64
+frame_bury 45
+frame_dig 44
+frame_dig 33
+pushint 40 // 40
+/
+<=
+assert
+frame_dig 45
+frame_dig 33
+pushint 40 // 40
+/
+<=
+assert
+frame_dig 35
+frame_dig 33
+frame_dig 44
++
+<=
+assert
+frame_dig 37
+frame_dig 34
+<=
+assert
+frame_dig 36
+frame_dig 34
+<=
+assert
+frame_dig 38
+frame_dig 33
+frame_dig 45
+-
+<=
+assert
+frame_dig 15
+frame_dig 33
+-
+frame_bury 21
+frame_dig 16
+frame_dig 35
+-
+frame_bury 22
+frame_dig 17
+frame_dig 37
+-
+frame_bury 23
+frame_dig 21
+itob
+frame_dig 22
+itob
+concat
+frame_dig 23
+itob
+concat
+frame_bury 27
+frame_dig 18
+frame_dig 34
+-
+frame_bury 24
+frame_dig 19
+frame_dig 36
+-
+frame_bury 25
+frame_dig 20
+frame_dig 38
+-
+frame_bury 26
+frame_dig 24
+itob
+frame_dig 25
+itob
+concat
+frame_dig 26
+itob
+concat
+frame_bury 28
+frame_dig 34
+frame_bury 39
+frame_dig 33
+frame_dig 45
+-
+frame_bury 40
+frame_dig 33
+frame_dig 44
++
+callsub signedneg_7
+frame_bury 41
+frame_dig 34
+callsub signedneg_7
+frame_bury 42
+frame_dig 7
+frame_dig 27
+box_put
+frame_dig 8
+frame_dig 28
+box_put
+frame_dig -2
+pushint 32 // 32
+extract_uint64
+frame_bury 50
+frame_dig -2
+pushint 72 // 72
+extract_uint64
+frame_bury 51
+frame_dig 50
+bnz settle_42_l11
+settle_42_l1:
+frame_dig 51
+bnz settle_42_l10
+settle_42_l2:
+frame_dig 35
+intc_0 // 0
+>
+bnz settle_42_l9
+settle_42_l3:
+frame_dig 36
+intc_0 // 0
+>
+bnz settle_42_l8
+settle_42_l4:
+frame_dig -5
+frame_dig 29
+frame_dig 39
+callsub signedaddtocash_17
+frame_dig 6
+frame_dig 31
+frame_dig 40
+callsub signedaddtocash_17
+frame_dig -5
+frame_dig 30
+frame_dig 41
+callsub signedaddtocash_17
+frame_dig 6
+frame_dig 32
+frame_dig 42
+callsub signedaddtocash_17
+frame_dig 30
+frame_dig 44
+callsub collectfees_20
+frame_dig 31
+frame_dig 45
+callsub collectfees_20
+frame_dig 37
+intc_0 // 0
+>
+bnz settle_42_l7
+settle_42_l5:
+frame_dig 38
+intc_0 // 0
+>
+bz settle_42_l12
+frame_dig 6
+frame_dig 31
+frame_dig 38
+callsub performpoolmove_14
+b settle_42_l12
+settle_42_l7:
+frame_dig -5
+frame_dig 29
+frame_dig 37
+callsub performpoolmove_14
+b settle_42_l5
+settle_42_l8:
+frame_dig 36
+callsub signedneg_7
+frame_bury 43
+frame_dig 6
+frame_dig 32
+frame_dig 43
+callsub performpoolmove_14
+b settle_42_l4
+settle_42_l9:
+frame_dig 35
+callsub signedneg_7
+frame_bury 43
+frame_dig -5
+frame_dig 30
+frame_dig 43
+callsub performpoolmove_14
+b settle_42_l3
+settle_42_l10:
+frame_dig 6
+frame_dig 0
+callsub healthcheck_16
+frame_bury 48
+b settle_42_l2
+settle_42_l11:
+frame_dig -5
+frame_dig 0
+callsub healthcheck_16
+frame_bury 46
+b settle_42_l1
+settle_42_l12:
+frame_dig -5
+frame_dig 0
+callsub healthcheck_16
+frame_bury 47
+frame_dig 47
+intc_2 // 9223372036854775808
+&
+!
+frame_dig 50
+frame_dig 47
+frame_dig 46
+callsub signedgte_11
+&&
+||
+assert
+frame_dig 6
+frame_dig 0
+callsub healthcheck_16
+frame_bury 49
+frame_dig 49
+intc_2 // 9223372036854775808
+&
+!
+frame_dig 51
+frame_dig 49
+frame_dig 48
+callsub signedgte_11
+&&
+||
+assert
+retsub
+
+// update_instrument
+updateinstrument_43:
+proto 2 0
+intc_0 // 0
+dup
+bytec_0 // ""
+intc_0 // 0
+dupn 13
+bytec_0 // ""
+intc_0 // 0
+dupn 3
+bytec_0 // ""
+dup
+frame_dig -1
+callsub setup_27
+txn Sender
+bytec_2 // "q"
+app_global_get
+==
+assert
+bytec_3 // "i"
+pushint 6240 // 6240
+box_create
+pop
+global LatestTimestamp
+bytec 12 // "t"
+app_global_get
+-
+frame_bury 3
+frame_dig 3
+intc 7 // 4294967296
+<
+assert
+intc_0 // 0
+frame_bury 0
+intc_3 // 1000000000000
+frame_bury 1
+global ZeroAddress
+frame_bury 2
+frame_dig 2
+len
+pushint 32 // 32
+==
+assert
+frame_dig -2
+intc_1 // 1
+extract_uint64
+frame_bury 4
+frame_dig -2
+pushint 9 // 9
+extract_uint16
+frame_bury 5
+frame_dig -2
+pushint 11 // 11
+extract_uint16
+frame_bury 6
+frame_dig -2
+pushint 13 // 13
+extract_uint16
+frame_bury 7
+frame_dig -2
+pushint 15 // 15
+extract_uint16
+frame_bury 8
+frame_dig -2
+pushint 17 // 17
+extract_uint16
+frame_bury 9
+frame_dig -2
+pushint 19 // 19
+extract_uint64
+frame_bury 10
+frame_dig -2
+pushint 27 // 27
+extract_uint64
+frame_bury 11
+frame_dig -2
+pushint 35 // 35
+extract_uint64
+frame_bury 12
+frame_dig -2
+intc_0 // 0
+getbyte
+frame_bury 18
+bytec_1 // "c"
+app_global_get
+frame_bury 19
+frame_dig 18
+frame_dig 19
+<=
+assert
+frame_dig 18
+intc_0 // 0
+==
+bnz updateinstrument_43_l6
+updateinstrument_43_l1:
+frame_dig 18
+frame_dig 19
+==
+bnz updateinstrument_43_l3
+frame_dig 2
+frame_dig 18
+frame_dig 0
+callsub performpoolmove_14
+frame_dig 18
+callsub getinstrument_2
+frame_bury 17
+frame_dig 17
+pushint 20 // 20
+extract_uint64
+frame_bury 13
+frame_dig 17
+pushint 28 // 28
+extract_uint64
+frame_bury 14
+frame_dig 17
+pushint 62 // 62
+extract_uint64
+frame_bury 15
+frame_dig 17
+pushint 70 // 70
+extract_uint64
+frame_bury 16
+b updateinstrument_43_l7
+updateinstrument_43_l3:
+frame_dig 4
+intc_0 // 0
+!=
+bnz updateinstrument_43_l5
+updateinstrument_43_l4:
+frame_dig 1
+frame_bury 13
+frame_dig 1
+frame_bury 14
+frame_dig 0
+frame_bury 15
+frame_dig 0
+frame_bury 16
+bytec_1 // "c"
+frame_dig 19
+intc_1 // 1
++
+app_global_put
+b updateinstrument_43_l7
+updateinstrument_43_l5:
+itxn_begin
+pushint 4 // axfer
+itxn_field TypeEnum
+frame_dig 4
+itxn_field XferAsset
+global CurrentApplicationAddress
+itxn_field AssetReceiver
+intc_0 // 0
+itxn_field AssetAmount
+intc_0 // 0
+itxn_field Fee
+itxn_submit
+b updateinstrument_43_l4
+updateinstrument_43_l6:
+frame_dig 4
+intc_0 // 0
+==
+assert
+b updateinstrument_43_l1
+updateinstrument_43_l7:
+frame_dig 4
+itob
+frame_dig 5
+itob
+extract 6 0
+concat
+frame_dig 6
+itob
+extract 6 0
+concat
+frame_dig 7
+itob
+extract 6 0
+concat
+frame_dig 8
+itob
+extract 6 0
+concat
+frame_dig 3
+itob
+extract 4 0
+concat
+frame_dig 13
+itob
+concat
+frame_dig 14
+itob
+concat
+frame_dig 9
+itob
+extract 6 0
+concat
+frame_dig 10
+itob
+concat
+frame_dig 11
+itob
+concat
+frame_dig 12
+itob
+concat
+frame_dig 15
+itob
+concat
+frame_dig 16
+itob
+concat
+frame_bury 17
+bytec_3 // "i"
+frame_dig 18
+pushint 78 // 78
+*
+frame_dig 17
+box_replace
+callsub ensurembrfund_1
+retsub
+
+// update_parameter
+updateparameter_44:
+proto 2 0
+bytec_0 // ""
+dup
+frame_dig -2
+extract 2 0
+store 4
+frame_dig -1
+extract 2 0
+store 5
+load 4
+bytec 8 // "l"
+==
+bnz updateparameter_44_l16
+global CreatorAddress
+txn Sender
+==
+assert
+load 4
+bytec 4 // "p"
+==
+bnz updateparameter_44_l15
+load 4
+bytec 7 // "b"
+==
+bnz updateparameter_44_l14
+load 4
+bytec 6 // "s"
+==
+bnz updateparameter_44_l13
+load 4
+bytec_2 // "q"
+==
+bnz updateparameter_44_l12
+load 4
+bytec 5 // "f"
+==
+bnz updateparameter_44_l11
+load 4
+bytec 9 // "w"
+==
+bnz updateparameter_44_l10
+load 4
+bytec 10 // "o"
+==
+bnz updateparameter_44_l9
+err
+updateparameter_44_l9:
+bytec 10 // "o"
+load 5
+callsub setaddress_0
+b updateparameter_44_l17
+updateparameter_44_l10:
+bytec 9 // "w"
+load 5
+callsub setaddress_0
+b updateparameter_44_l17
+updateparameter_44_l11:
+bytec 5 // "f"
+load 5
+callsub setaddress_0
+b updateparameter_44_l17
+updateparameter_44_l12:
+bytec_2 // "q"
+load 5
+callsub setaddress_0
+b updateparameter_44_l17
+updateparameter_44_l13:
+bytec 6 // "s"
+load 5
+callsub setaddress_0
+b updateparameter_44_l17
+updateparameter_44_l14:
+bytec 7 // "b"
+load 5
+btoi
+app_global_put
+b updateparameter_44_l17
+updateparameter_44_l15:
+bytec 4 // "p"
+load 5
+btoi
+app_global_put
+b updateparameter_44_l17
+updateparameter_44_l16:
+bytec_2 // "q"
+app_global_get
+txn Sender
+==
+assert
+load 5
+len
+pushint 4 // 4
+==
+assert
+bytec 8 // "l"
+load 5
+app_global_put
+updateparameter_44_l17:
+retsub
+
+// submit_withdraw_onchain
+submitwithdrawonchain_45:
+proto 3 0
+intc_0 // 0
+bytec_0 // ""
+frame_dig -2
+callsub getinstrument_2
+frame_bury 1
+frame_dig 1
+intc_0 // 0
+extract_uint64
+frame_bury 0
+frame_dig 0
+intc_0 // 0
+==
+bnz submitwithdrawonchain_45_l2
+itxn_begin
+pushint 4 // axfer
+itxn_field TypeEnum
+global CurrentApplicationAddress
+itxn_field Sender
+intc_0 // 0
+itxn_field Fee
+frame_dig 0
+itxn_field XferAsset
+frame_dig -1
+itxn_field AssetAmount
+frame_dig -3
+itxn_field AssetReceiver
+itxn_submit
+b submitwithdrawonchain_45_l3
+submitwithdrawonchain_45_l2:
+itxn_begin
+intc_1 // pay
+itxn_field TypeEnum
+global CurrentApplicationAddress
+itxn_field Sender
+intc_0 // 0
+itxn_field Fee
+frame_dig -1
+itxn_field Amount
+frame_dig -3
+itxn_field Receiver
+itxn_submit
+submitwithdrawonchain_45_l3:
+retsub
+
+// submit_withdraw_offchain
+submitwithdrawoffchain_46:
+proto 3 0
+intc_0 // 0
+bytec_0 // ""
+frame_dig -2
+callsub getinstrument_2
+frame_bury 1
+frame_dig 1
+intc_0 // 0
+extract_uint64
+frame_bury 0
+frame_dig 0
+intc_0 // 0
+==
+bnz submitwithdrawoffchain_46_l2
+itxn_begin
+pushint 4 // axfer
+itxn_field TypeEnum
+global CurrentApplicationAddress
+itxn_field Sender
+intc_0 // 0
+itxn_field Fee
+frame_dig 0
+itxn_field XferAsset
+frame_dig -1
+itxn_field AssetAmount
+frame_dig -3
+itxn_field AssetReceiver
+itxn_submit
+b submitwithdrawoffchain_46_l3
+submitwithdrawoffchain_46_l2:
+itxn_begin
+intc_1 // pay
+itxn_field TypeEnum
+global CurrentApplicationAddress
+itxn_field Sender
+intc_0 // 0
+itxn_field Fee
+frame_dig -1
+itxn_field Amount
+frame_dig -3
+itxn_field Receiver
+itxn_submit
+submitwithdrawoffchain_46_l3:
+retsub
+
+// withdraw
+withdraw_47:
+proto 5 0
+bytec_0 // ""
+intc_0 // 0
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+intc_0 // 0
+dupn 4
+bytec_0 // ""
+intc_0 // 0
+dupn 3
+bytec_0 // ""
+intc_0 // 0
+dupn 2
+bytec_0 // ""
+frame_dig -1
+callsub setup_27
+intc_0 // 0
+!
+!
+frame_bury 1
+callsub senderissigvalidator_21
+frame_dig -3
+intc_0 // 0
+extract_uint16
+frame_bury 16
+frame_dig 16
+intc_0 // 0
+==
+assert
+frame_dig -4
+frame_dig -4
+pushint 72 // 72
+extract_uint16
+frame_dig -4
+pushint 74 // 74
+extract_uint16
+substring3
+frame_bury 17
+frame_dig 17
+extract 2 0
+frame_bury 3
+frame_dig 3
+intc_0 // 0
+getbyte
+frame_bury 18
+frame_dig 18
+intc_1 // 1
+==
+assert
+frame_dig 3
+intc_1 // 1
+getbyte
+frame_bury 4
+frame_dig 3
+pushint 2 // 2
+extract_uint64
+frame_bury 5
+frame_dig 3
+extract 10 34
+frame_bury 6
+frame_dig 3
+pushint 44 // 44
+extract_uint64
+frame_bury 7
+frame_dig 3
+pushint 52 // 52
+extract_uint64
+frame_bury 11
+frame_dig -5
+frame_dig 4
+callsub getposition_3
+frame_bury 12
+frame_dig 12
+intc_0 // 0
+extract_uint64
+frame_bury 13
+frame_dig -2
+intc_0 // 0
+extract_uint64
+frame_bury 19
+frame_dig 13
+frame_dig 19
+-
+frame_bury 13
+frame_dig -2
+pushint 8 // 8
+extract_uint64
+frame_bury 14
+frame_dig 14
+frame_dig 11
+<=
+assert
+frame_dig 5
+frame_dig 7
+frame_dig 13
++
+<=
+assert
+frame_dig 5
+frame_dig 13
+>
+bnz withdraw_47_l7
+intc_0 // 0
+frame_bury 10
+withdraw_47_l2:
+frame_dig 5
+callsub signedneg_7
+frame_bury 8
+frame_dig 5
+frame_dig 14
+-
+frame_bury 9
+frame_dig 10
+intc_0 // 0
+!=
+bnz withdraw_47_l6
+withdraw_47_l3:
+frame_dig -5
+frame_dig 4
+frame_dig 8
+callsub signedaddtocash_17
+frame_dig 4
+frame_dig 14
+callsub collectfees_20
+frame_dig -5
+frame_dig 1
+callsub healthcheck_16
+frame_bury 15
+frame_dig 15
+intc_2 // 9223372036854775808
+&
+!
+assert
+bytec 9 // "w"
+app_global_get
+frame_bury 0
+frame_dig 0
+len
+pushint 32 // 32
+==
+assert
+frame_dig 6
+intc_0 // 0
+extract_uint16
+frame_bury 20
+frame_dig 6
+extract 2 0
+frame_bury 21
+frame_dig 20
+pushint 8 // 8
+==
+bnz withdraw_47_l5
+frame_dig 0
+frame_dig 4
+frame_dig 9
+callsub submitwithdrawoffchain_46
+b withdraw_47_l8
+withdraw_47_l5:
+frame_dig 21
+frame_dig 4
+frame_dig 9
+callsub submitwithdrawonchain_45
+b withdraw_47_l8
+withdraw_47_l6:
+frame_dig -5
+frame_dig 4
+frame_dig 10
+callsub performpoolmove_14
+b withdraw_47_l3
+withdraw_47_l7:
+frame_dig 5
+frame_dig 13
+-
+callsub signedneg_7
+frame_bury 10
+b withdraw_47_l2
+withdraw_47_l8:
+retsub
+
+// decode_wormhole_payload
+decodewormholepayload_48:
+proto 1 1
+bytec_0 // ""
+intc_0 // 0
+dup
+bytec_0 // ""
+intc_0 // 0
+dupn 2
+bytec_0 // ""
+dup
+pushint 57 // 57
+pushint 66 // 66
+frame_dig -1
+extract 2 0
+extract 5 1
+btoi
+*
++
+frame_bury 1
+frame_dig -1
+extract 2 0
+frame_dig 1
+pushint 25 // 25
++
+extract_uint64
+frame_bury 2
+frame_dig -1
+extract 2 0
+frame_dig 1
+intc 10 // 133
++
+bytec 14 // "wormholeDeposit"
+len
++
+pushint 32 // 32
+extract3
+frame_bury 3
+frame_dig 3
+len
+pushint 32 // 32
+==
+assert
+frame_dig -1
+extract 2 0
+frame_dig 1
+intc 10 // 133
++
+bytec 14 // "wormholeDeposit"
+len
++
+pushint 32 // 32
++
+extract_uint64
+frame_bury 4
+frame_dig 2
+itob
+frame_dig 3
+concat
+frame_dig 4
+itob
+concat
+frame_bury 0
+retsub
+
+// wormhole_deposit
+wormholedeposit_49:
+proto 5 0
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+bytec_0 // ""
+frame_dig -1
+callsub setup_27
+global GroupSize
+txn GroupIndex
+pushint 2 // 2
++
+==
+// Unknown transactions ahead detected
+assert
+frame_dig -5
+gtxns GroupIndex
+intc_1 // 1
+-
+gtxnsa ApplicationArgs 0
+pushbytes 0x636f6d706c6574655472616e73666572 // "completeTransfer"
+==
+// expected completeTransfer  method call
+assert
+frame_dig -5
+gtxns GroupIndex
+intc_1 // 1
+-
+gtxns ApplicationID
+bytec 7 // "b"
+app_global_get
+==
+// completeTransfer call appId unknown
+assert
+frame_dig -5
+gtxns GroupIndex
+intc_1 // 1
+-
+gtxns Sender
+bytec 10 // "o"
+app_global_get
+==
+// completeTransfer call sender unknown
+assert
+frame_dig -5
+gtxnsa ApplicationArgs 1
+frame_bury 1
+frame_dig -5
+gtxns GroupIndex
+intc_1 // 1
+-
+gtxnsa ApplicationArgs 1
+frame_dig 1
+extract 2 0
+==
+// VAAs do not match
+assert
+frame_dig 1
+callsub decodewormholepayload_48
+frame_bury 0
+frame_dig 0
+intc_0 // 0
+extract_uint64
+frame_bury 2
+frame_dig 0
+pushint 40 // 40
+extract_uint64
+frame_bury 3
+frame_dig 0
+extract 8 32
+frame_bury 4
+frame_dig 4
+frame_dig -4
+==
+pushint 114 // 114
+&&
+// Receiving user address mismatch
+assert
+frame_dig -4
+frame_dig -3
+frame_dig -2
+frame_dig 2
+frame_dig 3
+callsub innerdepositasset_34
+retsub
+
+// create_caster
+createcaster_50:
+proto 0 0
+bytec_0 // ""
+dupn 7
+intc_0 // 0
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+txna ApplicationArgs 3
+frame_bury 2
+txna ApplicationArgs 4
+frame_bury 3
+txna ApplicationArgs 5
+frame_bury 4
+txna ApplicationArgs 6
+frame_bury 5
+txna ApplicationArgs 7
+frame_bury 6
+txna ApplicationArgs 8
+frame_bury 7
+txna ApplicationArgs 9
+btoi
+frame_bury 8
+frame_dig 0
+frame_dig 1
+frame_dig 2
+frame_dig 3
+frame_dig 4
+frame_dig 5
+frame_dig 6
+frame_dig 7
+frame_dig 8
+callsub create_33
+retsub
+
+// update_instrument_caster
+updateinstrumentcaster_51:
+proto 0 0
+bytec_0 // ""
+intc_0 // 0
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+btoi
+frame_bury 1
+frame_dig 0
+frame_dig 1
+callsub updateinstrument_43
+retsub
+
+// update_parameter_caster
+updateparametercaster_52:
+proto 0 0
+bytec_0 // ""
+dup
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+frame_dig 0
+frame_dig 1
+callsub updateparameter_44
+retsub
+
+// deposit_caster
+depositcaster_53:
+proto 0 0
+bytec_0 // ""
+intc_0 // 0
+bytec_0 // ""
+intc_0 // 0
+dupn 2
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 2
+txna ApplicationArgs 3
+intc_0 // 0
+getbyte
+frame_bury 3
+txna ApplicationArgs 4
+btoi
+frame_bury 4
+txna ApplicationArgs 5
+btoi
+frame_bury 5
+txn GroupIndex
+intc_1 // 1
+-
+frame_bury 1
+frame_dig 0
+frame_dig 1
+frame_dig 2
+frame_dig 3
+frame_dig 4
+frame_dig 5
+callsub deposit_35
+retsub
+
+// wormhole_deposit_caster
+wormholedepositcaster_54:
+proto 0 0
+intc_0 // 0
+bytec_0 // ""
+dup
+intc_0 // 0
+dup
+txna ApplicationArgs 1
+frame_bury 1
+txna ApplicationArgs 2
+frame_bury 2
+txna ApplicationArgs 3
+intc_0 // 0
+getbyte
+frame_bury 3
+txna ApplicationArgs 4
+btoi
+frame_bury 4
+txn GroupIndex
+intc_1 // 1
+-
+frame_bury 0
+frame_dig 0
+gtxns TypeEnum
+pushint 6 // appl
+==
+assert
+frame_dig 0
+frame_dig 1
+frame_dig 2
+frame_dig 3
+frame_dig 4
+callsub wormholedeposit_49
+retsub
+
+// pool_move_caster
+poolmovecaster_55:
+proto 0 0
+bytec_0 // ""
+dupn 3
+intc_0 // 0
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+txna ApplicationArgs 3
+frame_bury 2
+txna ApplicationArgs 4
+frame_bury 3
+txna ApplicationArgs 5
+btoi
+frame_bury 4
+frame_dig 0
+frame_dig 1
+frame_dig 2
+frame_dig 3
+frame_dig 4
+callsub poolmove_39
+retsub
+
+// add_order_caster
+addordercaster_56:
+proto 0 0
+bytec_0 // ""
+dupn 2
+intc_0 // 0
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+txna ApplicationArgs 3
+frame_bury 2
+txna ApplicationArgs 4
+btoi
+frame_bury 3
+frame_dig 0
+frame_dig 1
+frame_dig 2
+frame_dig 3
+callsub addorder_41
+retsub
+
+// settle_caster
+settlecaster_57:
+proto 0 0
+intc_0 // 0
+bytec_0 // ""
+dupn 3
+intc_0 // 0
+txna ApplicationArgs 1
+frame_bury 1
+txna ApplicationArgs 2
+frame_bury 2
+txna ApplicationArgs 3
+frame_bury 3
+txna ApplicationArgs 4
+frame_bury 4
+txna ApplicationArgs 5
+btoi
+frame_bury 5
+txn GroupIndex
+intc_1 // 1
+-
+frame_bury 0
+frame_dig 0
+gtxns TypeEnum
+pushint 6 // appl
+==
+assert
+frame_dig 0
+frame_dig 1
+frame_dig 2
+frame_dig 3
+frame_dig 4
+frame_dig 5
+callsub settle_42
+retsub
+
+// withdraw_caster
+withdrawcaster_58:
+proto 0 0
+bytec_0 // ""
+dupn 3
+intc_0 // 0
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+txna ApplicationArgs 3
+frame_bury 2
+txna ApplicationArgs 4
+frame_bury 3
+txna ApplicationArgs 5
+btoi
+frame_bury 4
+frame_dig 0
+frame_dig 1
+frame_dig 2
+frame_dig 3
+frame_dig 4
+callsub withdraw_47
+retsub
+
+// portal_transfer_caster
+portaltransfercaster_59:
+proto 0 0
+bytec_0 // ""
+dup
+txna ApplicationArgs 1
+frame_bury 1
+frame_dig 1
+callsub portaltransfer_40
+frame_bury 0
+pushbytes 0x151f7c75 // 0x151f7c75
+frame_dig 0
+concat
+log
+retsub
+
+// account_move_caster
+accountmovecaster_60:
+proto 0 0
+bytec_0 // ""
+dupn 3
+intc_0 // 0
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+txna ApplicationArgs 3
+frame_bury 2
+txna ApplicationArgs 4
+frame_bury 3
+txna ApplicationArgs 5
+btoi
+frame_bury 4
+frame_dig 0
+frame_dig 1
+frame_dig 2
+frame_dig 3
+frame_dig 4
+callsub accountmove_28
+retsub
+
+// liquidate_caster
+liquidatecaster_61:
+proto 0 0
+bytec_0 // ""
+dupn 3
+intc_0 // 0
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+txna ApplicationArgs 3
+frame_bury 2
+txna ApplicationArgs 4
+frame_bury 3
+txna ApplicationArgs 5
+btoi
+frame_bury 4
+frame_dig 0
+frame_dig 1
+frame_dig 2
+frame_dig 3
+frame_dig 4
+callsub liquidate_38
+retsub
+
+// clean_orders_caster
+cleanorderscaster_62:
+proto 0 0
+bytec_0 // ""
+txna ApplicationArgs 1
+frame_bury 0
+frame_dig 0
+callsub cleanorders_32
+retsub
+
+// fund_mbr_caster
+fundmbrcaster_63:
+proto 0 0
+intc_0 // 0
+txn GroupIndex
+intc_1 // 1
+-
+frame_bury 0
+frame_dig 0
+gtxns TypeEnum
+intc_1 // pay
+==
+assert
+frame_dig 0
+callsub fundmbr_36
+retsub

@@ -1,0 +1,53 @@
+{
+  "name": "c3-pricecaster",
+  "version": "10.2.0",
+  "description": "Pricecaster Service Contracts",
+  "main": "index.js",
+  "types": "build/lib/pricecaster.d.ts",
+  "private": "true",
+  "scripts": {
+    "test-sc": "mocha -r ts-node/register test/test-sc.ts --timeout 60000",
+  },
+  "author": "C3 LLC",
+  "license": "Apache",
+  "dependencies": {
+    "@certusone/wormhole-sdk": "^0.9.23",
+    "@pythnetwork/client": "^2.19.0",
+    "@pythnetwork/pyth-common-js": "^1.4.0",
+    "@c3exchange/common": "^0.4.0-alpha.4",
+    "@randlabs/js-logger": "^1.2.0",
+    "axios": "^1.4.0",
+    "columnify": "^1.6.0",
+    "elliptic": "^6.5.4",
+    "fastify": "4.11.0",
+    "js-sha512": "^0.8.0",
+    "json-bigint": "^1.0.0",
+    "prom-client": "^14.1.1",
+    "terminal-kit": "^3.0.0",
+    "underscore": "^1.13.6",
+    "web3-eth-abi": "^1.6.1",
+    "web3-utils": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "@types/node-fetch": "^2.6.4",
+    "@types/underscore": "^1.11.4",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.51.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "mocha": "^10.2.0"
+  },
+  "files": [
+    "build/tools/app-tools.*",
+    "build/lib/*",
+    "teal/pyteal/*.py"
+  ]
+}

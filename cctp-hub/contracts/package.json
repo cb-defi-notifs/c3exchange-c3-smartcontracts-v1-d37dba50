@@ -1,0 +1,30 @@
+{
+  "name": "@c3exchange/cctp-support",
+  "version": "0.2.5",
+  "main": "./build/src/index.js",
+  "module": "./build/src/index.js",
+  "description": "C3 Support for Circle CCTP subsystem",
+  "scripts": {
+    "clean": "rimraf build && rimraf .buildinfo/cjs",
+    "build": "npm run clean && tsc --build",
+    "build:deploy": "npm run clean && tsc --build tsconfig.build.json",
+    "prepack": "npm run build:deploy",
+    "test": "mocha -r ts-node/register test/**/*.test.ts",
+    "test-script": "mocha -r ts-node/register",
+    "lint": "eslint src/**/*.ts test/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts test/**/*.ts --fix"
+  },
+  "author": "hernan@c3.io",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ignition": "^0.11.1",
+    "@nomicfoundation/hardhat-ledger": "^1.0.1",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "eslint": "^8.32.0",
+    "hardhat": "^2.18.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "solidity-bytes-utils": "^0.8.0"
+  }
+}
